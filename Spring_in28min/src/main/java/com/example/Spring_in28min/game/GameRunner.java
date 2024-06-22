@@ -1,5 +1,8 @@
 package com.example.Spring_in28min.game;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GameRunner {
 
 	// This is tightly coupled with Mario game to run other game we have to change
