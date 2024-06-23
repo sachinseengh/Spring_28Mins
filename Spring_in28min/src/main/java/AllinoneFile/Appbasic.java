@@ -10,7 +10,6 @@ import com.example.Spring_in28min.game.GameRunner;
 import com.example.Spring_in28min.game.Gamingc;
 import com.example.Spring_in28min.game.Mario;
 
-
 //@Configuration
 //class HelloConfig {
 //
@@ -37,16 +36,16 @@ import com.example.Spring_in28min.game.Mario;
 @ComponentScan("com.example.Spring_in28min.game")
 public class Appbasic {
 
-	//Component helps to simplify the code as well because @component on the class make the bean
+	// Component helps to simplify the code as well because @component on the class
+	// make the bean
 //	@Bean
 //	 public Gamingc game() {
 //		var game = new Mario();
 //		return game;
 //	}
-	
-	
-	
-	//we can even simplify this using @component because spring automatically does auto wiring
+
+	// we can even simplify this using @component because spring automatically does
+	// auto wiring
 //	@Bean
 //	public GameRunner gmr(Gamingc game) {
 //		var gm = new GameRunner(game);
@@ -54,23 +53,23 @@ public class Appbasic {
 //		
 //	}
 	public static void main(String[] args) {
-		
-    try (var context = new AnnotationConfigApplicationContext(Appbasic.class)) {
-		////    context.getBean("name");
-		//System.out.println(context.getBean("name"));
-		//
-		//
-		//
-		//Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
-		    context.getBean(Gamingc.class).up();
-		    context.getBean(GameRunner.class).run();
-	} catch (BeansException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+
+		try (var context = new AnnotationConfigApplicationContext(Appbasic.class)) {
+			//// context.getBean("name");
+			// System.out.println(context.getBean("name"));
+			//
+			//
+			//
+			// Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
+			context.getBean(Gamingc.class).up();
+			context.getBean(GameRunner.class).run();
+		} catch (BeansException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
-    
-    	
-	}}
-   
-    
-	
+}
+
+//if there are more than one class having the @component then it will show error so to define
+//the @primary is used 
