@@ -1,0 +1,22 @@
+package com.example.spring.exercise1;
+
+import java.util.Arrays;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+@Configuration
+@ComponentScan
+public class BusinessCalculationService {
+	
+	DataService dataService;
+	public BusinessCalculationService(DataService dataService) {
+		this.dataService=dataService;
+	}
+
+	public int findMax() {
+		return Arrays.stream(dataService.retrieveData()).max().orElse(0);
+	}
+
+}
